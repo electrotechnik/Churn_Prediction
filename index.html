@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div style="color:blue">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h2>Churn Prediction</h2>
+            <h3>Gender</h3><br><select name="Gender" id="gender" required="required">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <h3>No. of S.Citizens</h3><br><input id="scitizen" name="scitizen" required="required">
+            <h3>Life Partner</h3><br><select name="Life_Partner" id="Life_Partner" required="required">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <h3>Dependents</h3><br><select name="Dependents" id="Dependents" required="required">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>      
+            <h3>Tenure</h3><br><input id="Tenure" name="Tenure" required="required">
+            <h3>Phone Service</h3><br><select name="Phone_Service" id="Phone_Service" required="required">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>  
+            <h3>Multiple Lines</h3><br><select name="Multiple_Lines" id="Multiple_Lines" required="required">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="No_Phone_Service">No Phone Service</option>
+
+            </select>  
+            <h3>Internet Service</h3><br><select name="Internet_Service" id="Internet_Service" required="required">
+                <option value="No">No</option>
+                <option value="DSL">DSL</option>
+                <option value="Fiber_Optic">Fiber Optic</option>
+            </select>
+            <h3>Online Security</h3><br><select name="Online_Security" id="Online_Security" required="required">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="No_Internet_Service">No Internet Service</option>
+            </select>
+            <h3>Online Backup</h3><br><select name="Online_Backup" id="Online_Backup" required="required">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="No_Internet_Service">No Internet Service</option>
+            </select>
+            <h3>Device Protection</h3><br><select name="Device_Protection" id="Device_Protection" required="required">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="No_Internet_Service">No Internet Service</option>
+            </select>
+            <h3>Tech Support</h3><br><select name="Tech_Support" id="Tech_Support" required="required">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="No_Internet_Service">No Internet Service</option>
+            </select>
+            <h3>Streaming TV</h3><br><select name="Streaming_TV" id="Streaming_TV" required="required">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="No_Internet_Service">No Internet Service</option>
+            </select>
+             <h3>Streaming Movies</h3><br><select name="Streaming_Movies" id="Streaming_Movies" required="required">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="No_Internet_Service">No Internet Service</option>
+            </select>
+            <h3>Contract</h3><br><select name="Contract" id="Contract" required="required">
+                <option value="One_Year">One Year</option>
+                <option value="Two_Year">Two Year</option>
+                <option value="Month_to_Month">Month to Month</option>
+            </select>
+            <h3>Paperless Billing</h3><br><select name="Paperless_Billing" id="Paperless_Billing" required="required">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <h3>Payment Method</h3><br><select name="Payment_Method" id="Payment_Method" required="required">
+                <option value="Electronic_Check">Electronic Check</option>
+                <option value="Mailed_Check">Mailed Check</option>
+                <option value="Bank_transfer">Bank transfer (automatic)</option>
+                <option value="Bank_transfer">Credit card (automatic)</option>
+            </select>
+            <h3>Monthly Charges</h3><br><input id="Monthly_Charges" name="Monthly_Charges" required="required">
+            <h3>Total Charges</h3><br><input id="Total_Charges" name="Total_Charges" required="required">
+            <br><br><button id="sub" type="submit ">Predict Churn</button>
+            <br>
+
+        </form>
+
+
+
+        <br><br><h3>{{ prediction_text }}<h3>
+    </div>
+
+
+
+
+    <style>
+        body {
+            background-color: lightslategray;
+            text-align: center;
+            padding: 0px;
+        }
+        
+        #research {
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        
+        #fuel {
+            width: 83px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #fuel:hover {
+            background-color: coral;
+        }
+        
+        #research {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #research:hover {
+            background-color: coral;
+        }
+        
+        #resea {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #resea:hover {
+            background-color: coral;
+        }
+        
+        #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: darkcyan;
+        }
+        
+        #first {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #second {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #third {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #fourth {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</body>
+
+</html>
